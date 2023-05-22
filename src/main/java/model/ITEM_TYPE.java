@@ -6,6 +6,7 @@ public enum ITEM_TYPE {
     LEGGINGS(1),
     GLOVES(1),
     RINGS(2),
+    CONSUMABLE(5),
     WEAPON(2);
 
     private int maxAmmount;
