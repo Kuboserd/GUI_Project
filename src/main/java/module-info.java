@@ -2,6 +2,8 @@ module gui {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens gui to javafx.fxml;
-    exports gui;
+    opens controllers.gui to javafx.fxml;
+    opens model to javafx.base;
+    exports controllers.gui;
+    exports model;
 }

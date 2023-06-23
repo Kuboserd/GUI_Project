@@ -6,8 +6,21 @@ public class Player extends Statistics {
 
     @Override
     public void attack(Statistics defender) {
-        //TODO: make enrage do something :D
+        boolean poison = false;
+        if (this.getEquipment().containsKey(ITEM_TYPE.WEAPON)) {
+            for (Item item : this.equipment.get(ITEM_TYPE.WEAPON)) {
+                if (item.poisoned)
+                    poison = true;
+            }
+        }
+        if (poison && Math.random() * 10 > 9) {
+            defender.setPoisoned(true);
+        }
         super.attack(defender);
+        if (enraged) {
+            this.enraged = false;
+            this.attack(defender);
+        }
     }
 
     public Player(int health, int attack, int defense, int agility, int wallet) {
